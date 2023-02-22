@@ -9,15 +9,15 @@
     </tr>
   </thead>
   <% @books.each do |book| %>
-    <tbody>
-      <tr>
-        <tb><%= book.title %></tb>
-        <tb><%= book.body %></tb>
-        <tb><%= link_to "Show", "/books/#{book.id}" %></tb>
-        <tb><%= link_to "Edit", "/books/#{book.id}/edit" %></tb>
-        <tb><%= link_to "Destroy", "/books/#{book.id}", method: :delete, "deta-confirm" => "Are you sure?" %></tb>
-      </tr>
-    </tbody>
+  <tbody>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+      <td><%= link_to "Show", "/books/#{book.id}" %></td>
+      <td><%= link_to "Edit", "/books/#{book.id}/edit" %></td>
+      <td><%= link_to "Destroy", "/books/#{book.id}", method: :delete, "deta-confirm" => "Are you sure?" %></td>
+    </tr>
+  </tbody>
   <% end %>
 </table>
 
