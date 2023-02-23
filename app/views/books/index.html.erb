@@ -1,3 +1,4 @@
+<%= notice %>
 <p id="notice"></p>
 <h1>Books</h1>
 <table>
@@ -34,4 +35,13 @@
   <div class="action">
     <%= f.submit "Create Book" %>
   </div>
+<% end %>
+
+<% if @books.errors.any? %>
+  <%= @books.errors.count %> errors prohibited this book from being saved:
+  <ul>
+    <% @books.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
