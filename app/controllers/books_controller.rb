@@ -6,10 +6,9 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      #リダイレクトと同時にメッセージ表示
-      redirect_to books_path, notice: 'Book was successfully created.'
+      redirect_to @book, notice: 'Book was successfully created.'
     else
-      render :new
+      render :index
     end
   end
 
@@ -28,8 +27,11 @@ class BooksController < ApplicationController
 
   def update
     book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to "/books/#{book.id}", notice: 'Book was successfully created.'
+    if book.update(book_params)
+      redirect_to "/books/#{book.id}", notice: 'Book was successfully created.'
+    else
+      render :edit
+    end
   end
 
   def destroy
